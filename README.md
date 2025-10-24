@@ -17,5 +17,31 @@ Repositório: [https://github.com/Zipzoper/ZooJava](https://github.com/Zipzoper/
 
 ---
 
+ZooJava é um sistema simples de simulação de zoológico em Java, baseado no padrão MVC, com menu interativo em modo texto.
+
+## 🚀 Execução
+
+1. Clone o repositório: git clone https://github.com/Zipzoper/ZooJava.git
+
+
+2. Abra em uma IDE Java (Eclipse, IntelliJ ou VS Code).
+
+
+3. Execute br/com/zoojava/view/Main.java e use o menu para interagir com o zoológico.
+
+4. Utilize os números para navegar pelo menu
+
 ## 🧩 Estrutura de Pacotes
+
+model → classes dos animais e suas ações.
+
+controller → lógica do zoológico.
+
+view → interface de texto (menu).
+
+util → utilitários de entrada e apoio.
+
+
+Protótipo inicial baseado no modelo UML.
+
 
