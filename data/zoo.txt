@@ -1,0 +1,3 @@
+Leao;zip;10
+Macaco;luiz;30;1
+Elefante;Caio;100

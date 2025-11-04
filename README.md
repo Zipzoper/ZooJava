@@ -45,3 +45,24 @@ util → utilitários de entrada e apoio.
 Protótipo inicial baseado no modelo UML.
 
 
+Etapa 4:
+
+## ✅ Funcionalidades Implementadas
+
+### 🧬 **Pilares da POO**
+- **Encapsulamento** (atributos privados + getters/setters)
+- **Herança** (`Animal` → `Mamifero` → {`Macaco`, `Leao`, `Elefante`})
+- **Polimorfismo** (métodos `emitirSom()` e `alimentar()` sobrescritos)
+
+### 🧠 **Lógica e Estrutura**
+- Estrutura de pacotes seguindo padrão MVC  
+  `model`, `view`, `controller`, `service`, `util`
+- Uso de **ArrayList** para gerenciar os animais
+- Uso de **HashMap** para estatísticas
+- Tratamento de exceções no input do usuário
+
+### 💾 **Persistência de Dados (.txt – sem Gson)**
+- Os dados são salvos em `data/zoo.txt`
+- O arquivo é criado automaticamente caso não exista
+- Formato simples e legível, ex:
+
