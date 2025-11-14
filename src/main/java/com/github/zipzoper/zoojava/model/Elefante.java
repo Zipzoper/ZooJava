@@ -1,9 +1,17 @@
 package com.github.zipzoper.zoojava.model;
 
 public class Elefante extends Mamifero {
-    public Elefante() { super("Elefante", 0, "Elefante"); }
+
+    public Elefante(String nome, int idade, String especie) {
+        super(nome, idade, especie);
+    }
+
     public Elefante(String nome, int idade) {
-        super(nome, idade, "Elefante");
+        this(nome, idade, "Elefante");
+    }
+
+    public Elefante() {
+        this("Elefante", 0, "Elefante");
     }
 
     @Override

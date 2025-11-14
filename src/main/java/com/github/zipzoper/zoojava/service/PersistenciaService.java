@@ -11,10 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.zipzoper.zoojava.model.Animal;
-import com.github.zipzoper.zoojava.model.Elefante;
-import com.github.zipzoper.zoojava.model.Leao;
-import com.github.zipzoper.zoojava.model.Macaco;
+import com.github.zipzoper.zoojava.model.*;
 
 public class PersistenciaService {
 
@@ -37,72 +34,119 @@ public class PersistenciaService {
         }
     }
 
-    /**
-     * Salva todos os animais no arquivo zoo.txt
-     * Formatos:
-     *  - Macaco;Nome;Idade;BananasComidas
-     *  - Leao;Nome;Idade
-     *  - Elefante;Nome;Idade
-     */
+    // -------------------------------------------------------------
+    // SALVAR TODOS OS ANIMAIS
+    // -------------------------------------------------------------
     public void salvar(List<Animal> animais) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO, false))) {
+        try (BufferedWriter w = new BufferedWriter(new FileWriter(ARQUIVO, false))) {
 
             for (Animal a : animais) {
+
+                String tipo = a.getClass().getSimpleName();
+                String nome = a.getNome();
+                int idade = a.getIdade();
+                String especie = a.getEspecie();
+
+                // Macaco tem atributo extra
                 if (a instanceof Macaco) {
                     Macaco m = (Macaco) a;
-                    writer.write("Macaco;" + m.getNome() + ";" + m.getIdade() + ";" + m.getBananasComidas());
-                } else if (a instanceof Leao) {
-                    writer.write("Leao;" + a.getNome() + ";" + a.getIdade());
-                } else if (a instanceof Elefante) {
-                    writer.write("Elefante;" + a.getNome() + ";" + a.getIdade());
+                    w.write(tipo + ";" + nome + ";" + idade + ";" + especie + ";" + m.getBananasComidas());
+                } else {
+                    // todos os outros animais não têm atributos extras
+                    w.write(tipo + ";" + nome + ";" + idade + ";" + especie);
                 }
-                writer.newLine();
+
+                w.newLine();
             }
         }
     }
 
-    /**
-     * Lê o arquivo zoo.txt e reconstrói os objetos
-     */
+    // -------------------------------------------------------------
+    // CARREGAR TODOS OS ANIMAIS
+    // -------------------------------------------------------------
     public List<Animal> carregar() throws IOException {
+
         List<Animal> lista = new ArrayList<>();
 
         Path path = Paths.get(ARQUIVO);
         if (!Files.exists(path)) {
-            return lista; // Arquivo não existe → lista vazia
+            return lista;
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO))) {
-            String linha;
-            while ((linha = reader.readLine()) != null) {
+        try (BufferedReader r = new BufferedReader(new FileReader(ARQUIVO))) {
 
+            String linha;
+            while ((linha = r.readLine()) != null) {
                 if (linha.isBlank()) continue;
 
-                String[] partes = linha.split(";");
+                String[] p = linha.split(";");
 
-                String tipo = partes[0];
-                String nome = partes[1];
-                int idade = Integer.parseInt(partes[2]);
+                String tipo = p[0];
+                String nome = p[1];
+                int idade = Integer.parseInt(p[2]);
+                String especie = p[3];
+
+                Animal a = null;
 
                 switch (tipo) {
+
+                    // 🦁 MAMÍFEROS
                     case "Macaco":
-                        int bananas = Integer.parseInt(partes[3]);
-                        Macaco m = new Macaco(nome, idade);
+                        int bananas = p.length > 4 ? Integer.parseInt(p[4]) : 0;
+                        Macaco m = new Macaco(nome, idade, especie);
                         m.setBananasComidas(bananas);
-                        lista.add(m);
+                        a = m;
                         break;
 
                     case "Leao":
-                        lista.add(new Leao(nome, idade));
+                        a = new Leao(nome, idade, especie);
                         break;
 
                     case "Elefante":
-                        lista.add(new Elefante(nome, idade));
+                        a = new Elefante(nome, idade, especie);
+                        break;
+
+                    // 🐦 AVES
+                    case "Papagaio":
+                        a = new Papagaio(nome, idade, especie);
+                        break;
+
+                    case "Falcao":
+                        a = new Falcao(nome, idade, especie);
+                        break;
+
+                    // 🐍 RÉPTEIS
+                    case "Cobra":
+                        a = new Cobra(nome, idade, especie);
+                        break;
+
+                    case "Tartaruga":
+                        a = new Tartaruga(nome, idade, especie);
+                        break;
+
+                    // 🐠 PEIXES
+                    case "Tubarao":
+                        a = new Tubarao(nome, idade, especie);
+                        break;
+
+                    case "PeixePalhaco":
+                        a = new PeixePalhaco(nome, idade, especie);
+                        break;
+
+                    // 🐛 INVERTEBRADOS
+                    case "Aranha":
+                        a = new Aranha(nome, idade, especie);
+                        break;
+
+                    case "Formiga":
+                        a = new Formiga(nome, idade, especie);
                         break;
 
                     default:
                         System.out.println("⚠ Tipo desconhecido no arquivo: " + tipo);
                 }
+
+                if (a != null) lista.add(a);
             }
         }
 

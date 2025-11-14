@@ -1,11 +1,19 @@
 package com.github.zipzoper.zoojava.model;
 
 public class Macaco extends Mamifero {
+
     private int bananasComidas = 0;
 
-    public Macaco() { super("Macaco", 0, "Macaco"); }
+    public Macaco(String nome, int idade, String especie) {
+        super(nome, idade, especie);
+    }
+
     public Macaco(String nome, int idade) {
-        super(nome, idade, "Macaco");
+        this(nome, idade, "Macaco");
+    }
+
+    public Macaco() {
+        this("Macaco", 0, "Macaco");
     }
 
     @Override

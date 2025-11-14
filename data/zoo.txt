@@ -1,4 +1,5 @@
-Leao;zip;10
-Macaco;luiz;30;1
-Elefante;Caio;100
-Leao;Jose;10
+Macaco;Luiz;24;Macaco;1
+Cobra;Pedro;16;Cobra
+Tubarao;Caio;24;Tubarão
+Leao;Jose;41;Leão
+Falcao;Victor;20;Falcão

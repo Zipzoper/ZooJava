@@ -1,9 +1,17 @@
 package com.github.zipzoper.zoojava.model;
 
 public class Leao extends Mamifero {
-    public Leao() { super("Leão", 0, "Leão"); }
+
+    public Leao(String nome, int idade, String especie) {
+        super(nome, idade, especie);
+    }
+
     public Leao(String nome, int idade) {
-        super(nome, idade, "Leão");
+        this(nome, idade, "Leão");
+    }
+
+    public Leao() {
+        this("Leão", 0, "Leão");
     }
 
     @Override

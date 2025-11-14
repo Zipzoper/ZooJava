@@ -68,21 +68,139 @@ public class Main {
         System.out.print("Escolha uma opção: ");
     }
 
+    // ----------------------------------------------------------
+    // CADASTRAR ANIMAL 
+    // ----------------------------------------------------------
     private static void cadastrarAnimal() {
         System.out.println("\n--- Cadastro de Animal ---");
-        String nome = InputUtils.lerString("Nome: ");
-        int idade = InputUtils.lerInt("Idade: ");
-        System.out.println("Tipo (1-Macaco, 2-Leão, 3-Elefante): ");
-        int tipo = InputUtils.lerInt("");
 
-        Animal a = null;
-        switch (tipo) {
-            case 1 -> a = new Macaco(nome, idade);
-            case 2 -> a = new Leao(nome, idade);
-            case 3 -> a = new Elefante(nome, idade);
-            default -> System.out.println(RED + "Tipo inválido." + RESET);
+        System.out.println("\nSelecione o grupo (espécie):");
+        System.out.println("1 - Mamíferos");
+        System.out.println("2 - Aves");
+        System.out.println("3 - Répteis");
+        System.out.println("4 - Peixes");
+        System.out.println("5 - Invertebrados");
+
+        int categoria = InputUtils.lerInt("> ");
+
+        Animal novo = null;
+
+        switch (categoria) {
+
+            // 🦁 MAMÍFEROS
+            case 1 -> {
+                System.out.println("\nEscolha o mamífero:");
+                System.out.println("1 - Macaco");
+                System.out.println("2 - Leão");
+                System.out.println("3 - Elefante");
+
+                int tipo = InputUtils.lerInt("> ");
+
+                String nome = InputUtils.lerString("Nome do animal: ");
+                int idade = InputUtils.lerInt("Idade: ");
+
+                novo = switch (tipo) {
+                    case 1 -> new Macaco(nome, idade, "Macaco");
+                    case 2 -> new Leao(nome, idade, "Leão");
+                    case 3 -> new Elefante(nome, idade, "Elefante");
+                    default -> {
+                        System.out.println(RED + "Tipo inválido!" + RESET);
+                        yield null;
+                    }
+                };
+            }
+
+            // 🐦 AVES
+            case 2 -> {
+                System.out.println("\nEscolha a ave:");
+                System.out.println("1 - Papagaio");
+                System.out.println("2 - Falcão");
+
+                int tipo = InputUtils.lerInt("> ");
+
+                String nome = InputUtils.lerString("Nome do animal: ");
+                int idade = InputUtils.lerInt("Idade: ");
+
+                novo = switch (tipo) {
+                    case 1 -> new Papagaio(nome, idade, "Papagaio");
+                    case 2 -> new Falcao(nome, idade, "Falcão");
+                    default -> {
+                        System.out.println(RED + "Tipo inválido!" + RESET);
+                        yield null;
+                    }
+                };
+            }
+
+            // 🐍 RÉPTEIS
+            case 3 -> {
+                System.out.println("\nEscolha o réptil:");
+                System.out.println("1 - Cobra");
+                System.out.println("2 - Tartaruga");
+
+                int tipo = InputUtils.lerInt("> ");
+
+                String nome = InputUtils.lerString("Nome do animal: ");
+                int idade = InputUtils.lerInt("Idade: ");
+
+                novo = switch (tipo) {
+                    case 1 -> new Cobra(nome, idade, "Cobra");
+                    case 2 -> new Tartaruga(nome, idade, "Tartaruga");
+                    default -> {
+                        System.out.println(RED + "Tipo inválido!" + RESET);
+                        yield null;
+                    }
+                };
+            }
+
+            // 🐠 PEIXES
+            case 4 -> {
+                System.out.println("\nEscolha o peixe:");
+                System.out.println("1 - Tubarão");
+                System.out.println("2 - Peixe-palhaço");
+
+                int tipo = InputUtils.lerInt("> ");
+
+                String nome = InputUtils.lerString("Nome do animal: ");
+                int idade = InputUtils.lerInt("Idade: ");
+
+                novo = switch (tipo) {
+                    case 1 -> new Tubarao(nome, idade, "Tubarão");
+                    case 2 -> new PeixePalhaco(nome, idade, "Peixe-palhaço");
+                    default -> {
+                        System.out.println(RED + "Tipo inválido!" + RESET);
+                        yield null;
+                    }
+                };
+            }
+
+            // 🐛 INVERTEBRADOS
+            case 5 -> {
+                System.out.println("\nEscolha o invertebrado:");
+                System.out.println("1 - Aranha");
+                System.out.println("2 - Formiga");
+
+                int tipo = InputUtils.lerInt("> ");
+
+                String nome = InputUtils.lerString("Nome do animal: ");
+                int idade = InputUtils.lerInt("Idade: ");
+
+                novo = switch (tipo) {
+                    case 1 -> new Aranha(nome, idade, "Aranha");
+                    case 2 -> new Formiga(nome, idade, "Formiga");
+                    default -> {
+                        System.out.println(RED + "Tipo inválido!" + RESET);
+                        yield null;
+                    }
+                };
+            }
+
+            default -> System.out.println(RED + "Categoria inválida!" + RESET);
         }
-        if (a != null) zoo.adicionarAnimal(a);
+
+        if (novo != null) {
+            zoo.adicionarAnimal(novo);
+            System.out.println(GREEN + "✔ Animal cadastrado com sucesso!" + RESET);
+        }
     }
 
     private static void removerAnimal() {
