@@ -1,9 +1,4 @@
-Macaco;Luiz;24;Macaco;2
 Cobra;Pedro;16;Cobra
-Tubarao;Caio;24;Tubarão
-Leao;Jose;41;Leão
-Falcao;Victor;20;Falcão
 Leao;Charlie;2;Leão
-Falcao;Azul;0;Falcão
-Leao;Dudu;50;Leão
-Escorpiao;Lara;2;Escorpião
+Papagaio;Lucas;3;Papagaio
+Leao;Luca;4;Leão
