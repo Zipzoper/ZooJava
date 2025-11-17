@@ -1,10 +1,12 @@
 package com.github.zipzoper.zoojava.model;
 
-public class Formiga extends Invertebrado {
+public class Escorpiao extends Invertebrado {
 
-    public Formiga(String nome, int idade, String especie) {
+    public Escorpiao(String nome, int idade, String especie) {
         super(nome, idade, especie);
     }
+
+    
 
     @Override
     public void emitirSom() {
@@ -13,6 +15,6 @@ public class Formiga extends Invertebrado {
 
     @Override
     public void alimentar() {
-        System.out.println(getNome() + " Comeur folhas.");
+        System.out.println(getNome() + " Come Baratas.");
     }
 }

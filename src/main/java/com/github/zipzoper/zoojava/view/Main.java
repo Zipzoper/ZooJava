@@ -173,7 +173,7 @@ public class Main {
             case 5 -> {
                 System.out.println("\nEscolha o invertebrado:");
                 System.out.println("1 - Aranha");
-                System.out.println("2 - Formiga");
+                System.out.println("2 - Escorpião");
 
                 int tipo = InputUtils.lerInt("> ");
                 String nome = InputUtils.lerString("Nome do animal: ");
@@ -181,7 +181,7 @@ public class Main {
 
                 novo = switch (tipo) {
                     case 1 -> new Aranha(nome, idade, "Aranha");
-                    case 2 -> new Formiga(nome, idade, "Formiga");
+                    case 2 -> new Escorpiao(nome, idade, "Escorpião");
                     default -> {
                         System.out.println(RED + "Tipo inválido!" + RESET);
                         yield null;

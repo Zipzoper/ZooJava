@@ -139,7 +139,7 @@ public class PersistenciaService {
                         break;
 
                     case "Formiga":
-                        a = new Formiga(nome, idade, especie);
+                        a = new Escorpiao(nome, idade, especie);
                         break;
 
                     default:

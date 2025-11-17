@@ -6,3 +6,4 @@ Falcao;Victor;20;Falcão
 Leao;Charlie;2;Leão
 Falcao;Azul;0;Falcão
 Leao;Dudu;50;Leão
+Escorpiao;Lara;2;Escorpião
