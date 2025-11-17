@@ -45,8 +45,6 @@ util → utilitários de entrada e apoio.
 Protótipo inicial baseado no modelo UML.
 
 
-Etapa 4:
-
 ## ✅ Funcionalidades Implementadas
 
 ### 🧬 **Pilares da POO**
@@ -66,3 +64,38 @@ Etapa 4:
 - O arquivo é criado automaticamente caso não exista
 - Formato simples e legível, ex:
 
+
+# 🐾 **Funcionalidades**
+
+### ✔ **Cadastro de Animais**
+1. Usuário escolhe a **espécie**  
+   - Mamíferos  
+   - Aves  
+   - Répteis  
+   - Peixes  
+   - Invertebrados  
+2. Escolhe o **animal específico**  
+3. Digita **nome** e **idade**
+
+### ✔ **Listagem de animais**
+Exibe todos os animais cadastrados com seus dados.
+
+### ✔ **Emissão de som**
+Cada espécie sobrescreve o método `emitirSom()` usando **polimorfismo**.
+
+### ✔ **Alimentar todos**
+Cada animal possui seu próprio comportamento no método `alimentar()`.
+
+### ✔ **Remoção de animais**
+
+### ✔ **Estatísticas**
+Conta quantos animais existem por espécie usando `Map<String, Integer>`.
+
+### ✔ **Persistência em arquivo**
+Todos os animais são salvos em:
+\data\zoo.txt
+
+O arquivo é reconstruído automaticamente ao iniciar o sistema.
+
+### ✔ **Thread de Auto-Salvamento**
+O sistema possui uma Thread que roda paralelamente, salvando automaticamente a lista de animais a cada 10 segundos.
