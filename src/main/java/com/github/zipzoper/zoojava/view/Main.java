@@ -69,7 +69,7 @@ public class Main {
     }
 
     // ----------------------------------------------------------
-    // CADASTRAR ANIMAL 
+    // CADASTRAR ANIMAL — Versão completa final
     // ----------------------------------------------------------
     private static void cadastrarAnimal() {
         System.out.println("\n--- Cadastro de Animal ---");
@@ -95,7 +95,6 @@ public class Main {
                 System.out.println("3 - Elefante");
 
                 int tipo = InputUtils.lerInt("> ");
-
                 String nome = InputUtils.lerString("Nome do animal: ");
                 int idade = InputUtils.lerInt("Idade: ");
 
@@ -117,7 +116,6 @@ public class Main {
                 System.out.println("2 - Falcão");
 
                 int tipo = InputUtils.lerInt("> ");
-
                 String nome = InputUtils.lerString("Nome do animal: ");
                 int idade = InputUtils.lerInt("Idade: ");
 
@@ -138,7 +136,6 @@ public class Main {
                 System.out.println("2 - Tartaruga");
 
                 int tipo = InputUtils.lerInt("> ");
-
                 String nome = InputUtils.lerString("Nome do animal: ");
                 int idade = InputUtils.lerInt("Idade: ");
 
@@ -159,7 +156,6 @@ public class Main {
                 System.out.println("2 - Peixe-palhaço");
 
                 int tipo = InputUtils.lerInt("> ");
-
                 String nome = InputUtils.lerString("Nome do animal: ");
                 int idade = InputUtils.lerInt("Idade: ");
 
@@ -180,7 +176,6 @@ public class Main {
                 System.out.println("2 - Formiga");
 
                 int tipo = InputUtils.lerInt("> ");
-
                 String nome = InputUtils.lerString("Nome do animal: ");
                 int idade = InputUtils.lerInt("Idade: ");
 
